@@ -4,14 +4,31 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from './components/Navbar';
 import Login from './components/login';
+import Signup from './components/signup';
+import {createBrowserRouter} from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const router= createBrowserRouter([
+    {
+      path:'/',
+      element:<Navbar/>
+    },
+    {
+      path:'/login',
+      element:<Login/>
+    },
+    {
+      path:'/signup',
+      element:<Signup/>
+    }
+  ])
 
   return (
     <>
     <Navbar title="SiyaTech" />
     <Login></Login>
+    <Signup></Signup>
       {/* <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
