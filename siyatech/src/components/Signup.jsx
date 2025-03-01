@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'
 
 export default function Signup() {
     const [name, setName] = useState('');
@@ -131,7 +132,7 @@ export default function Signup() {
                 Sign Up
             </button>
             <div style={{ textAlign: 'center', marginTop: '15px', fontSize: '14px' }}>
-                Already have an account? <a href="/" style={{ color: '#007bff', textDecoration: 'none' }}>Login</a>
+                Already have an account? <Link to="/" style={{ color: '#007bff', textDecoration: 'none' }}>Login</Link>
             </div>
         </div>
     );
