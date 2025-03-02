@@ -8,20 +8,21 @@ import About from './components/About';
 import Services from './components/Services';
 import Contact from './components/contact';
 import Gallary from './components/Gallary';
+import Dashboard from './components/dashboard';
 
 function App() {
   return (
     <Router>
       {/* <Navbar title="SiyaTech" /> */}
       <Routes>
-        <Route path="/" element={<Navbar />} />
-        <Route index element={<Home />} />  {/* Default home page */}
+        <Route path="/" element={<><Navbar></Navbar><Dashboard /></>} />
+        {/* <Route index element={<Home />} />  Default home page */}
         <Route path="/home" element={<Home />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/service" element={<Services />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/gallary" element={<Gallary />} />
+        <Route path="/signup" element={<><Signup></Signup></>} />
+        <Route path="/about" element={<><Navbar></Navbar><About></About></>} />
+        <Route path="/service" element={<><Navbar></Navbar><Services></Services></>} />
+        <Route path="/contact" element={<><Navbar></Navbar><Contact ></Contact></>} />
+        <Route path="/gallery" element={<><Navbar></Navbar><Gallary></Gallary></>} />
       </Routes>
     </Router>
   );
