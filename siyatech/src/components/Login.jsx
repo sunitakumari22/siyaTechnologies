@@ -30,6 +30,7 @@ export default function Login() {
             if (user) {
                 setMessage(`Welcome, ${user.email}`);
                 navigate('/home');
+                // alert('Logged in Successfully')
             } else {
                 setError('Invalid email or password.');
             }

@@ -32,7 +32,7 @@ export default function Navbar() {
             <Link to="/courses" className="nav-item nav-link">Courses</Link>
             <Link to="/contact" className="nav-item nav-link">Contact</Link>
           </div>
-          <Link to="/signup" className="btn btn-primary rounded-pill py-2 px-4">Register</Link>
+          <Link to="/login" className="btn btn-primary rounded-pill py-2 px-4">Login</Link>
         </div>
       </nav>
     </div>
