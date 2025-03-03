@@ -1,6 +1,41 @@
-import React from 'react';
-
+import React, { useState } from 'react'
 function Contact() {
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+})
+
+const [status, setStatus] = useState(null) 
+
+const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+}
+
+const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    try {
+        const response = await fetch('http://localhost:5000/Message', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        })
+
+        if (response.ok) {
+            setStatus('Message sent successfully!')
+            setFormData({ name: '', email: '', subject: '', message: '' }) 
+            alert('Message sent successfully!')
+        } else {
+            setStatus('Failed to send message. Please try again.')
+        }
+    } catch (error) {
+        setStatus('An error occurred. Please try again later.')
+    }
+}
+
   return (
     <div>
       <div className="container-fluid bg-primary py-5 mb-5 hero-header">
@@ -74,43 +109,79 @@ function Contact() {
 
             {/* Contact Form */}
             <div className="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-              <form>
+            <form onSubmit={handleSubmit}>
                 <div className="row g-3">
-                  <div className="col-md-6">
-                    <div className="form-floating">
-                      <input type="text" className="form-control" id="name" placeholder="Your Name" />
-                      <label htmlFor="name">Your Name</label>
+                    <div className="col-md-6">
+                        <div className="form-floating">
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="name"
+                                name="name"
+                                placeholder="Your Name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                required
+                            />
+                            <label htmlFor="name">Your Name</label>
+                        </div>
                     </div>
-                  </div>
-                  <div className="col-md-6">
-                    <div className="form-floating">
-                      <input type="email" className="form-control" id="email" placeholder="Your Email" />
-                      <label htmlFor="email">Your Email</label>
+                    <div className="col-md-6">
+                        <div className="form-floating">
+                            <input
+                                type="email"
+                                className="form-control"
+                                id="email"
+                                name="email"
+                                placeholder="Your Email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
+                            />
+                            <label htmlFor="email">Your Email</label>
+                        </div>
                     </div>
-                  </div>
-                  <div className="col-12">
-                    <div className="form-floating">
-                      <input type="text" className="form-control" id="subject" placeholder="Subject" />
-                      <label htmlFor="subject">Subject</label>
+                    <div className="col-12">
+                        <div className="form-floating">
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="subject"
+                                name="subject"
+                                placeholder="Subject"
+                                value={formData.subject}
+                                onChange={handleChange}
+                                required
+                            />
+                            <label htmlFor="subject">Subject</label>
+                        </div>
                     </div>
-                  </div>
-                  <div className="col-12">
-                    <div className="form-floating">
-                      <textarea
-                        className="form-control"
-                        placeholder="Leave a message here"
-                        id="message"
-                        style={{ height: '100px' }}
-                      ></textarea>
-                      <label htmlFor="message">Message</label>
+                    <div className="col-12">
+                        <div className="form-floating">
+                            <textarea
+                                className="form-control"
+                                placeholder="Leave a message here"
+                                id="message"
+                                name="message"
+                                style={{ height: '100px' }}
+                                value={formData.message}
+                                onChange={handleChange}
+                                required
+                            ></textarea>
+                            <label htmlFor="message">Message</label>
+                        </div>
                     </div>
-                  </div>
-                  <div className="col-12">
-                    <button className="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                  </div>
+                    <div className="col-12">
+                        <button className="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                    </div>
+                    {status && (
+                        <div className="col-12">
+                            <p className={status.includes('success') ? 'text-success' : 'text-danger'}>{status}</p>
+                        </div>
+                    )}
                 </div>
-              </form>
-            </div>
+            </form>
+        </div>
 
           </div>
         </div>

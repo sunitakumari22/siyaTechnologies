@@ -4,6 +4,7 @@ import { NavLink, Link } from 'react-router-dom'
 export default function Navbar() {
     const [loggedInUser, setLoggedInUser] = useState(null)
     const [showDropdown, setShowDropdown] = useState(false)
+    const [showLogoutConfirm, setShowLogoutConfirm] = useState(false)
 
     useEffect(() => {
         const storedUser = localStorage.getItem('loggedInUser')
@@ -15,6 +16,11 @@ export default function Navbar() {
     const handleLogout = () => {
         localStorage.removeItem('loggedInUser')
         setLoggedInUser(null)
+        setShowLogoutConfirm(false)  
+    }
+
+    const confirmLogout = () => {
+        setShowLogoutConfirm(true)
     }
 
     return (
@@ -40,7 +46,7 @@ export default function Navbar() {
                         </div>
 
                         {loggedInUser ? (
-                            <div 
+                            <div
                                 className="position-relative"
                                 onMouseEnter={() => setShowDropdown(true)}
                                 onMouseLeave={() => setShowDropdown(false)}
@@ -49,11 +55,20 @@ export default function Navbar() {
                                 <button className="btn btn-primary btn-sm">
                                     {loggedInUser.name}
                                 </button>
-                                
+
                                 {showDropdown && (
-                                    <div className="dropdown-menu show position-absolute" style={{ right: 0, top: '100%', minWidth: '150px' }}>
+                                    <div className="dropdown-menu show position-absolute" style={{ right: 0, top: '100%', minWidth: '200px' }}>
                                         <Link to="/profile" className="dropdown-item">Profile</Link>
-                                        <button className="dropdown-item" onClick={handleLogout}>Logout</button>
+                                        <button className="dropdown-item" onClick={confirmLogout}>Logout</button>
+                                    </div>
+                                )}
+                                {showLogoutConfirm && (
+                                    <div className="position-fixed top-50 start-50 translate-middle bg-white p-4 border rounded shadow" style={{ zIndex: 1050 }}>
+                                        <p>Are you sure you want to logout?</p>
+                                        <div className="d-flex justify-content-end">
+                                            <button className="btn btn-secondary me-2" onClick={() => setShowLogoutConfirm(false)}>Cancel</button>
+                                            <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
+                                        </div>
                                     </div>
                                 )}
                             </div>
