@@ -9,7 +9,6 @@ export default function Home() {
   return (
     <div>
       <Navbar title="SiyaTech" />
-      <Outlet />
       <Dashboard/>
 
     </div>

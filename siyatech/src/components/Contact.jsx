@@ -63,8 +63,6 @@ const handleSubmit = async (e) => {
               <p className="mb-4">
                 Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos
               </p>
-
-              {/* Office Info */}
               <div className="d-flex align-items-center mb-4">
                 <div
                   className="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary"
@@ -77,8 +75,6 @@ const handleSubmit = async (e) => {
                   <p className="mb-0">Ranchi Jharkhand</p>
                 </div>
               </div>
-
-              {/* Mobile Info */}
               <div className="d-flex align-items-center mb-4">
                 <div
                   className="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary"
@@ -91,8 +87,6 @@ const handleSubmit = async (e) => {
                   <p className="mb-0">+012 345 67890</p>
                 </div>
               </div>
-
-              {/* Email Info */}
               <div className="d-flex align-items-center">
                 <div
                   className="d-flex align-items-center justify-content-center flex-shrink-0 bg-primary"
@@ -106,8 +100,6 @@ const handleSubmit = async (e) => {
                 </div>
               </div>
             </div>
-
-            {/* Contact Form */}
             <div className="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
             <form onSubmit={handleSubmit}>
                 <div className="row g-3">
