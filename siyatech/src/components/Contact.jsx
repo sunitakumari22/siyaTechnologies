@@ -23,7 +23,7 @@ function Contact() {
             <h1 className="mb-5">Contact For Any Query</h1>
           </div>
           <div className="row g-4">
-            <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+            <div className="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
               <h5>Get In Touch</h5>
               <p className="mb-4">
                 Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos
@@ -73,7 +73,7 @@ function Contact() {
             </div>
 
             {/* Contact Form */}
-            <div className="col-lg-4 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
+            <div className="col-lg-6 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
               <form>
                 <div className="row g-3">
                   <div className="col-md-6">

@@ -29,6 +29,7 @@ export default function Login() {
 
             if (user) {
                 setMessage(`Welcome, ${user.email}`);
+                localStorage.setItem('loggedInUser', JSON.stringify(user)); 
                 navigate('/home');
                 // alert('Logged in Successfully')
             } else {
