@@ -8,7 +8,7 @@ import Services from './components/Services';
 import Contact from './components/Contact';
 import Gallary from './components/Gallary';
 import Dashboard from './components/Dashboard';
-import Login from './components/login';
+import Login from './components/Login';
 
 function App() {
   return (
