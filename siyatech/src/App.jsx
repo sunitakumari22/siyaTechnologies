@@ -5,7 +5,7 @@ import Home from './components/home'
 import Signup from './components/Signup';
 import About from './components/About';
 import Services from './components/Services';
-import Contact from './components/contact';
+import Contact from './components/Contact';
 import Gallary from './components/Gallary';
 import Dashboard from './components/Dashboard';
 import Login from './components/login';
